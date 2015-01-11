@@ -1,8 +1,9 @@
 # coding: utf-8
 
+from abc import ABCMeta, abstractmethod
+
 import random
 import time
-from abc import ABCMeta, abstractmethod
 
 class Observer(object, metaclass=ABCMeta):
     @abstractmethod

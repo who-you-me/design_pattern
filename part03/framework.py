@@ -1,7 +1,8 @@
 # coding: utf-8
 
-import copy
 from abc import ABCMeta, abstractmethod
+
+import copy
 
 class Product(object, metaclass=ABCMeta):
     @abstractmethod

@@ -1,7 +1,9 @@
 # coding: utf-8
 
-import unicodedata
 from abc import ABCMeta, abstractmethod
+
+import unicodedata
+import utils
 
 class Display(object, metaclass=ABCMeta):
     def __init__(self, impl):
@@ -44,7 +46,7 @@ class DisplayImpl(object, metaclass=ABCMeta):
 class StringDisplayImpl(DisplayImpl):
     def __init__(self, string):
         self.__string = string
-        self.__width = self.string_width(string)
+        self.__width = utils.string_width(string)
 
     def raw_open(self):
         self.__print_line()
@@ -60,17 +62,6 @@ class StringDisplayImpl(DisplayImpl):
         for i in range(self.__width):
             print("-", end="")
         print("+")
-
-    def string_width(self, string):
-        width = 0
-        for ch in string:
-            char_width = unicodedata.east_asian_width(ch)
-            if char_width in "WFA":
-                width += 2
-            else:
-                width += 1
-
-        return width
 
 if __name__ == "__main__":
     d1 = CountDisplay(StringDisplayImpl("Hello, Japan."))

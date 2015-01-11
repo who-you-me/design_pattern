@@ -1,4 +1,7 @@
+# coding: utf-8
+
 import sys
+
 from factory import Factory
 
 factory = Factory.get_factory(sys.argv[1])
