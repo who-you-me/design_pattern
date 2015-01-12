@@ -17,7 +17,6 @@ class Hand(object):
         def __init__(self, hand_value):
             self.__hand_value = hand_value
 
-
         def is_stronger_than(self, hand):
             return self.__fight(hand) == 1
 
@@ -162,5 +161,3 @@ if __name__ == "__main__":
     print("Total result:")
     print(player1)
     print(player2)
-
-
